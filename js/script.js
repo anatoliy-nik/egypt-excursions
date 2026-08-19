@@ -226,8 +226,14 @@
       overlay.classList.remove('open');
       document.body.style.overflow = '';
     }
-    document.querySelectorAll('.book-btn').forEach(function (b) {
-      b.addEventListener('click', function () { openModal(b.closest('.tcard')); });
+    // Делегирование кликов: надёжно работает для всех .book-btn на странице,
+    // в т.ч. добавленных динамически и в разных секциях.
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.book-btn') : null;
+      if (btn) {
+        e.preventDefault();
+        openModal(btn.closest('.tcard'));
+      }
     });
     if (mSendWa) mSendWa.addEventListener('click', function () {
       window.open('https://wa.me/201000000000?text=' + encodeURIComponent(buildMsg()), '_blank');
