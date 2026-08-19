@@ -208,7 +208,14 @@
       var pt = card ? card.querySelector('.price-tag') : null;
       curExc = h3 ? h3.textContent.trim() : 'Экскурсия';
       curPrice = pt ? pt.textContent.trim() : '';
-      curCity = card && card.closest('#khurgada') ? 'Хургада' : (card && card.closest('#sharm') ? 'Шарм-эль-Шейх' : '');
+      // определить город: сначала по блоку, затем по содержимому страницы
+      var cityBlock = card ? (card.closest('#khurgada') ? 'Хургада' : (card.closest('#sharm') ? 'Шарм-эль-Шейх' : '')) : '';
+      if (!cityBlock) {
+        var body = document.body.innerHTML || '';
+        if (/из Хургады|из Хургада|Хургады/.test(body)) cityBlock = 'Хургада';
+        else if (/Шарм-эль-Шейха|Шарм-эль-Шейх/.test(body)) cityBlock = 'Шарм-эль-Шейх';
+      }
+      curCity = cityBlock;
       if (mExc) mExc.textContent = curExc;
       if (mPrice) mPrice.textContent = curPrice;
       if (mDate) { var d = new Date(); d.setDate(d.getDate() + 1); mDate.value = d.toISOString().slice(0, 10); }

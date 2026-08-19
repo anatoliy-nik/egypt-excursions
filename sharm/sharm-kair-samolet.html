@@ -166,7 +166,7 @@
 <section class="similar">
   <div class="container">
     <h2 style="text-align:center;font-size:26px;margin-bottom:22px">Вам может понравиться</h2>
-    <div class="sim-grid"><a class="tcard" href="sharm-kair.html" style="display:flex;flex-direction:column;color:inherit;text-decoration:none"><div class="photo"><span class="price-tag">от $44</span><img src="../img/kair.jpg" alt="Каир и пирамиды из Шарм-эль-Шейх"></div><div class="body"><h3>Каир и пирамиды</h3><div class="meta"><span>⏱ 17 ч</span><span>★ 4.8</span></div><span class="btn btn-gold" style="display:inline-flex;justify-content:center;margin-top:auto">Забронировать</span></div></a><a class="tcard" href="sharm-gora-moiseya.html" style="display:flex;flex-direction:column;color:inherit;text-decoration:none"><div class="photo"><span class="price-tag">от $32</span><img src="../img/mount-sinai.jpg" alt="Гора Моисея и Св. Екатерина из Шарм-эль-Шейх"></div><div class="body"><h3>Гора Моисея и Св. Екатерина</h3><div class="meta"><span>⏱ 14 ч</span><span>★ 4.8</span></div><span class="btn btn-gold" style="display:inline-flex;justify-content:center;margin-top:auto">Забронировать</span></div></a><a class="tcard" href="sharm-luksor-samolet.html" style="display:flex;flex-direction:column;color:inherit;text-decoration:none"><div class="photo"><span class="price-tag">от $189</span><img src="../img/luxor.jpg" alt="Луксор на самолёте из Шарм-эль-Шейх"></div><div class="body"><h3>Луксор на самолёте</h3><div class="meta"><span>⏱ 12 ч</span><span>★ 4.8</span></div><span class="btn btn-gold" style="display:inline-flex;justify-content:center;margin-top:auto">Забронировать</span></div></a></div>
+    <div class="sim-grid"><div class="tcard"><a href="sharm-kair.html" style="display:flex;flex-direction:column;color:inherit;text-decoration:none"><div class="photo"><span class="price-tag">от Каир и пирамиды</span><img src="../img/kair.jpg" alt="sharm-kair.html из Шарм-эль-Шейх"></div><div class="body"><h3>sharm-kair.html</h3><div class="meta"><span>⏱ $44</span><span>★ 4.8</span></div></div></a><button type="button" class="btn btn-gold book-btn" style="margin:0 15px 15px">Забронировать</button></div><div class="tcard"><a href="sharm-gora-moiseya.html" style="display:flex;flex-direction:column;color:inherit;text-decoration:none"><div class="photo"><span class="price-tag">от Гора Моисея и Св. Екатерина</span><img src="../img/mount-sinai.jpg" alt="sharm-gora-moiseya.html из Шарм-эль-Шейх"></div><div class="body"><h3>sharm-gora-moiseya.html</h3><div class="meta"><span>⏱ $32</span><span>★ 4.8</span></div></div></a><button type="button" class="btn btn-gold book-btn" style="margin:0 15px 15px">Забронировать</button></div><div class="tcard"><a href="sharm-luksor-samolet.html" style="display:flex;flex-direction:column;color:inherit;text-decoration:none"><div class="photo"><span class="price-tag">от Луксор на самолёте</span><img src="../img/luxor.jpg" alt="sharm-luksor-samolet.html из Шарм-эль-Шейх"></div><div class="body"><h3>sharm-luksor-samolet.html</h3><div class="meta"><span>⏱ $189</span><span>★ 4.8</span></div></div></a><button type="button" class="btn btn-gold book-btn" style="margin:0 15px 15px">Забронировать</button></div><div class="tcard"><a href="sharm-ras-mohammed.html" style="display:flex;flex-direction:column;color:inherit;text-decoration:none"><div class="photo"><span class="price-tag">от Рас-Мохаммед</span><img src="../img/ras-mohammed.jpg" alt="sharm-ras-mohammed.html из Шарм-эль-Шейх"></div><div class="body"><h3>sharm-ras-mohammed.html</h3><div class="meta"><span>⏱ $30</span><span>★ 4.8</span></div></div></a><button type="button" class="btn btn-gold book-btn" style="margin:0 15px 15px">Забронировать</button></div></div></div>
   </div>
 </section>
 
@@ -180,5 +180,32 @@
 </footer>
 
 <script src="../js/script.js"></script>
+<!-- Попап -->
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="mExcursion">Экскурсия</h3>
+      <button class="modal-close" id="mClose" aria-label="Закрыть">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-price"><span>Бронь бесплатно, оплата на месте</span><b id="mPrice"></b></div>
+      <div class="form-field"><label>Дата экскурсии</label><input type="date" id="mDate"></div>
+      <div class="form-row">
+        <div class="form-field"><label>Взрослых</label><select id="mAdults"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+        <div class="form-field"><label>Детей</label><select id="mKids"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+      </div>
+      <div class="form-field"><label>Ваш отель / зона</label><input type="text" id="mHotel" placeholder="Например: Sahl Hasheesh"></div>
+      <div class="form-field"><label>Ваше имя</label><input type="text" id="mName" placeholder="Как к вам обращаться"></div>
+      <div class="modal-note">Отправим заявку выбранным мессенджером — менеджер подтвердит за 5 минут</div>
+      <div class="modal-submit">
+        <button class="btn btn-wa" id="mSendWa"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.4 5.3L2 22l4.8-1.3c1.6.9 3.4 1.3 5.2 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm5.3 14.2c-.2.6-1.1 1.1-1.6 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.5-4.1-4.6-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.4.7-.4h.5c.2 0 .4-.1.6.4l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.1-.2.2-.1.4.2.4.9 1.5 1.9 2.3 1.3 1.1 2.4 1.4 2.8 1.6.2.1.4.1.5-.1l.8-.9c.2-.2.3-.2.6-.1l1.9.9c.2.1.4.2.4.3.1.2.1.7 0 1.1z"/></svg> Отправить в WhatsApp</button>
+        <button class="btn btn-tg" id="mSendTg"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.1L2.7 11.9c-1.1.4-1 1.5.1 1.8l4.7 1.5 1.8 5.5c.3 1 .9 1.2 1.6.6l2.5-2.4 4.9 3.6c.8.5 1.5.2 1.7-.7l3.2-15.9c.3-1.3-.4-2-2.3-1.8z"/></svg> Отправить в Telegram</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="
+
 </body>
 </html>
